@@ -9,6 +9,7 @@ services:
       - ./data/prometheus:/prometheus
     ports:
       - 9090:9090
+    user: root
     
   grafana:
     image: grafana/grafana
