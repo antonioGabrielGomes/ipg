@@ -33,20 +33,20 @@ services:
 ##        depends_on:
 ##            - app
 ##
-##    db:
-##        image: mysql:5.7.42-debian
-##        command: --innodb-use-native-aio=0
-##        container_name: db
-##        restart: always
-##        tty: true
-##        ports:
-##            - "33006:3306"
-##        volumes:
-##            - ./.docker/dbdata:/var/lib/mysql
-##        environment:
-##            - MYSQL_DATABASE=laravel
-##            - MYSQL_ROOT_PASSWORD=root
-##            - MYSQL_USER=root
+    db:
+        image: mysql:5.7.42-debian
+        command: --innodb-use-native-aio=0
+        container_name: db
+        restart: always
+        tty: true
+        ports:
+            - "33006:3306"
+        volumes:
+            - ./.docker/dbdata:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=laravel
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=root
 
 
 ##    redis:
