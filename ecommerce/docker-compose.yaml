@@ -16,25 +16,25 @@ services:
         ports:
             - "9100:9100"
 
-##        depends_on:
-##            - db
-##            - redis
+        depends_on:
+            - db
+            - redis
 
-##    nginx:
-##        build: .docker/nginx
-##        container_name: nginx
-##        restart: always
-##        tty: true
-##        ports:
-##            - "8080:80"
-##        volumes:
-##            - .:/var/www
-##
-##        depends_on:
-##            - app
-##
+    nginx:
+        build: .docker/nginx
+        container_name: nginx
+        restart: always
+        tty: true
+        ports:
+            - "8001:80"
+        volumes:
+            - .:/var/www
+
+        depends_on:
+            - app
+
     db:
-        image: mysql:5.7.42-debian
+        image: mysql:5.7
         command: --innodb-use-native-aio=0
         container_name: db
         restart: always
@@ -49,10 +49,10 @@ services:
             - MYSQL_USER=root
 
 
-##    redis:
-##        image: redis:alpine
-##        expose:
-##            - 6379
+    redis:
+        image: redis:alpine
+        expose:
+            - 6379
 
 
 networks:
